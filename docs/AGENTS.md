@@ -16,7 +16,7 @@
 | `npm run web:dev` | Servidor de desarrollo web |
 | `npm run web:build` | Type-check + build web a `dist/` |
 | `npm run app:dev` | Build web + compilar Electron + ejecutar |
-| `npm run app:build` | Build producción multiplataforma |
+| `npm run app:build` | Build producción multiplataforma → `release/{version}/` |
 
 ## Estructura del Proyecto
 

@@ -88,12 +88,55 @@ src/electron/
 
 ## 8. Scripts
 
+### 8.1 Tabla de Comandos
+
 | Script | Comando | Uso |
 |--------|---------|-----|
-| `web:dev` | `vite` | Servidor de desarrollo web |
-| `web:build` | `rimraf dist/ && vue-tsc --noEmit && vite build` | Build web |
-| `app:dev` | `npm run web:build && tsc && electron .` | Build + ejecutar Electron |
-| `app:build` | `rimraf release/ && npm run web:build && tsc && electron-builder` | Build producción desktop |
+| `web:dev` | `vite` | Servidor de desarrollo web (hot-reload) |
+| `web:build` | `rimraf dist/ && vue-tsc --noEmit && vite build` | Build web → `dist/` |
+| `app:dev` | `npm run web:build && tsc && electron .` | Build web + Electron + ejecución inmediata |
+| `app:build` | `rimraf release/ && npm run web:build && tsc && electron-builder` | Build producción multiplataforma |
+
+### 8.2 `app:build` — Paso a paso
+
+1. **`rimraf release/`** — elimina el directorio de builds anteriores
+2. **`npm run web:build`** — compila el frontend:
+   - `vue-tsc --noEmit` — type-check del código Vue/TypeScript
+   - `vite build` — bundling (rolldown) a `dist/` (HTML, JS, CSS, assets)
+3. **`tsc`** — compila `src/electron/main/main.ts` y `preload/preload.ts` → `dist/electron/`
+4. **`electron-builder`** — toma `dist/` + runtime de Electron y genera instaladores
+
+### 8.3 Artefactos de salida
+
+```
+release/{version}/
+├── Pomodoro App.dmg           # macOS
+├── Pomodoro App.AppImage      # Linux
+├── pomodoro-app_1.0.0_amd64.deb  # Linux (Debian/Ubuntu)
+└── Pomodoro App Setup x.x.x.exe  # Windows (NSIS installer)
+```
+
+| Plataforma | Formato | Configuración en `package.json` |
+|-----------|--------|-------------------------------|
+| macOS | `.dmg` | `build.mac.target: ["dmg"]` |
+| Linux | `.AppImage` + `.deb` | `build.linux.target: ["AppImage", "deb"]` |
+| Windows | `.exe` (NSIS) | `build.win.target: [{target: "nsis", arch: ["x64"]}]` |
+
+### 8.4 Estructura de `dist/` (build intermedio)
+
+```
+dist/
+├── index.html
+├── assets/
+│   ├── index-{hash}.css
+│   ├── index-{hash}.js
+│   └── ... (audios, iconos, etc.)
+└── electron/
+    ├── main/
+    │   └── main.js        # Proceso principal Electron (compilado)
+    └── preload/
+        └── preload.js      # Preload script (compilado)
+```
 
 ## 9. Criterios de Éxito
 
