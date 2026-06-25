@@ -13,7 +13,7 @@
     "build": "npm run web:build"
   },
   "build": {
-    "appId": "geduramc_pomodoro_app",
+    "appId": "geduma_pomodoro_app",
     "asar": true,
     "directories": {
       "buildResources": "assets",
@@ -56,7 +56,7 @@
     }
   },
   "keywords": [],
-  "author": "geduramc",
+  "author": "geduma",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "5.2.3",

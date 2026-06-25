@@ -6,8 +6,8 @@
         <div class="modal-body">
           <button type="button" class="g-btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="text-center mt-4 mb-4">
-            <a href="https://geduramc.com" target="_blank" rel="noopener noreferrer">
-              By @geduramc &#9749;
+            <a href="https://geduma.com" target="_blank" rel="noopener noreferrer">
+              By @geduma &#9749;
             </a>
           </div>
         </div>

@@ -3,7 +3,7 @@
     <a href="#/settings">
       <img src="@public/icons/settings.svg" alt="github" class="g-btn" />
     </a>
-    <a href="https://github.com/geduramc/pomodoro-app" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/geduma/pomodoro-app" target="_blank" rel="noopener noreferrer">
       <img src="@public/icons/github.svg" alt="github" class="g-btn" />
     </a>
     <img src="@public/icons/info.svg" alt="github" class="g-btn" data-bs-toggle="modal" data-bs-target="#info-modal" />
