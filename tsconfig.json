@@ -1,5 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -19,11 +18,8 @@
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "ignoreDeprecations": "6.0"
   },
-  "include": ["src/**/*"],
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
+  "include": ["src/**/*"]
 }

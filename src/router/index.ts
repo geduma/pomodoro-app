@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, Router } from 'vue-router'
+import { createRouter, createWebHashHistory, type Router } from 'vue-router'
 import HomeComponent from '../components/HomeComponent.vue'
 import SettingsComponent from '../components/SettingsComponent.vue'
 import DownloadComponent from '../components/DownloadComponent.vue'
