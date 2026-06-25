@@ -1,36 +1,52 @@
 <template>
   <footer>
-    <a href="#/settings">
-      <img src="@public/icons/settings.svg" alt="github" class="g-btn" />
+    <div class="icons">
+      <a href="#/settings">
+        <img src="@public/icons/settings.svg" alt="settings" class="g-btn" />
+      </a>
+      <a href="https://github.com/geduma/pomodoro-app" target="_blank" rel="noopener noreferrer">
+        <img src="@public/icons/github.svg" alt="github" class="g-btn" />
+      </a>
+    </div>
+    <a class="credit" href="https://geduma.com" target="_blank" rel="noopener noreferrer">
+      By @geduma &#9749;
     </a>
-    <a href="https://github.com/geduma/pomodoro-app" target="_blank" rel="noopener noreferrer">
-      <img src="@public/icons/github.svg" alt="github" class="g-btn" />
-    </a>
-    <img src="@public/icons/info.svg" alt="github" class="g-btn" data-bs-toggle="modal" data-bs-target="#info-modal" />
   </footer>
 </template>
 <script lang="ts">
-import { useRoute } from 'vue-router'
-
 export default {
   name: 'FooterComponent',
   setup() {
-    const route = useRoute()
-    console.log(route.name)
-
-    return {
-    }
+    return {}
   }
 }
 </script>
 <style scoped>
 footer {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.icons {
   display: flex;
   gap: 1rem;
 }
 
 img {
   height: 30px;
+}
+
+.credit {
+  color: var(--default-color);
+  text-decoration: none;
+  opacity: .7;
+  font-size: 12px;
+}
+
+.credit:hover {
+  opacity: .5;
+  text-decoration: underline;
 }
 </style>

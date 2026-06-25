@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import path from 'path'
 
 const isMac = process.platform === 'darwin'
-if (isMac) app.dock.hide()
+if (isMac) app.dock?.hide()
 
 const createWindow = (): void => {
   const main = new BrowserWindow({

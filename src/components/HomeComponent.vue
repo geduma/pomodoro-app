@@ -129,7 +129,7 @@ export default {
       pom = min.value = pomodoro
       short = shortBreak
       long = longBreak
-      alarmType = alarm
+      alarmType = Array.isArray(alarm) ? alarm[0] : alarm
     })
 
     onUnmounted(() => {
